@@ -1,16 +1,12 @@
-<<<<<<< Updated upstream
 # Python in a visual context
 Learn Python by drawing things.
 
 This repo will house my learning/teaching materials translated from Portuguese-language [material-aulas (Python + py5)](https://abav.lugaralgum.com/material-aulas/Processing-Python-py5/), 80+ pages. To do so, I need more patrons at https://liberapay.com/villares.
-=======
-
 Resources for courses and workshops, being developed in this [repository](https://github.com/villares/python-visual-context/).
 
 # Educational content
 
 **[Material for Python 3 with py5](Processing-Python-py5/README.md)**
-
 
 ## Context
 > This started with materials teach/learn coding using Processing Python mode, in Portuguese, then it got converted to use **py5**, and now it is being translated into English.
@@ -40,4 +36,3 @@ If you want to support the continuity of this project, which produces open teach
 ** Text and images:** © 2024 Alexander B The Villares - License [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR), for the material added from 2022 (using the py5) library, except where indicated, check assignments on each page for materials adapted/resixed from other sources. I thank repository contributors who offer their work in these terms!
 
 **Code:** GNU GPL v3.0, except where indicated, for some reason.
->>>>>>> Stashed changes
