@@ -23,10 +23,10 @@ If you want to support the continuity of this project, which produces open teach
 
 ## Related Resources
 
-- Fazines and posters [**`desenho()`**](https://desenho. placealgum.com)`""To draw with code, to draw together, with computer and with other people!"
-- Daily drawings: [sketch-a-day](https://abav. rentagum.com/sketch-a-day)
+- Fazines and posters [**`desenho()`**](https://desenho.lugaralgum.com) `To draw with code, to draw together, with computer and with other people!`
+- Daily drawings: [sketch-a-day](https://abav.lugaralgum.com/sketch-a-day)
 - [Paper objects with Processing and Python](https://github.com/villares/Paper-objects-with-Processing-and-Python)
-- [Work in progress] [Quebra-aheads de Parsons with visual result](https://abav. rentagum.com/faded-parsons-visual/)
+- [Work in progress] [Quebra-aheads de Parsons with visual result](https://abav.lugaralgum.com/faded-parsons-visual/)
 - Other drawing options with Python: [Resources for teaching programming for artists, designers and architects](https://github.com/villares/Resources-for-teaching-programming)
 - [Other Processing and Python resources and books](on/other_resources.md)
 
