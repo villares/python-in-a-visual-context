@@ -146,7 +146,7 @@ def key_released():
 
 Did you see a `65535` in the middle of the keys?
 
-It means that a`CODED` key has been pressed, like `SHIFT`, for example. We need to remember that some keys are labelled slightly differently, the so-called *coded* keys. When `key == CODED` you need to use the `key_code` variable to find out which key was pressed (or released), usually by comparing it with a numeric constant like the one here:
+It means that a`CODED` key has been pressed, like `SHIFT`, for example. We need to remember that some keys are labelled slightly differently, the so-called *coded* keys. When `key == CODED` you need to use the `key_code` variable to find out which key was pressed (or released), usually by comparing it with a numeric constant like these:
 
 `UP DOWN LEFT RIGHT ALT CONTROL SHIFT`
 
