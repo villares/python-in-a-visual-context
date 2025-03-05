@@ -56,8 +56,8 @@ The solutions to this issue involve creating a structure that stores the state o
 
 ```python
 
-a_apertada = False
-b_apertada = False
+a_pressed = False
+b_pressed = False
 
 def setup():
     size(256,256)
@@ -68,31 +68,31 @@ def setup():
 def draw():
     background(0, 200, 200)
     
-    if a_apertada:
+    if a_pressed:
         fill(200, 0, 0) 
         rect(64, 96, 64, 64)
         fill(255)
         text('a', 96, 128)
         
-    if b_apertada:
+    if b_pressed:
         fill(0, 0, 200) 
         rect(128, 96, 64, 64)
         fill(255)
         text('b', 160, 128)
         
 def key_pressed():
-    global a_apertada, b_apertada
+    global a_pressed, b_pressed
     if key == 'a':
-        a_apertada = True
+        a_pressed = True
     if key == 'b':
-        b_apertada = True        
+        b_pressed = True        
 
 def key_released():
-    global a_apertada, b_apertada
+    global a_pressed, b_pressed
     if key == 'a':
-        a_apertada = False
+        a_pressed = False
     if key == 'b':
-        b_apertada = False        
+        b_pressed = False        
 ```
 
 ![](assets/teclas_simultaneas\_1.gif)
@@ -114,7 +114,7 @@ To add an item to a set we use `set.add(item)`, and to remove `set.discard(item)
 In Python, we can tell if an item exists within a collection (such as lists, tuples, deques and sets) with the keyword `in` used as an operator, and this is much more computationally efficient in a large set than in a large list or tuple! In the example below, if `'b' in keys_pressed` is true, the background turns black.
 
 ```python
-teclas_apertadas = set()  # conjunto (set) vazio
+pressed_keys = set()  # creates an empty set
 
 def setup():
     size(512,256)
@@ -123,12 +123,12 @@ def setup():
     stroke_weight(3)
         
 def draw():
-    if 'b' in teclas_apertadas:
+    if 'b' in pressed_keys:
         background(0)
     else:
         background(100, 0, 200)
     
-    for i, k in enumerate(teclas_apertadas):
+    for i, k in enumerate(pressed_keys):
         x = i * 64
         fill(0, x, 255 - i * 32) 
         rect(x, 96, 64, 64)
@@ -136,10 +136,10 @@ def draw():
         text(str(k), x + 32, 128)
     
 def key_pressed():
-    teclas_apertadas.add(key)    
+    pressed_keys.add(key)    
     
 def key_released():
-    teclas_apertadas.discard(key)
+    pressed_keys.discard(key)
 ```
 
 ![](assets/teclas_simultaneas\_2.gif)
@@ -166,8 +166,8 @@ To do this, we'll use another data structure called a **dictionary***(dict*). Th
 If you know that the key exists in the dictionary, you can look it up using the form dictionary `[key]` (which gives an error if the key doesn't exist in the dictionary). When you're not sure if the key is there, or it's part of the strategy to look for keys that might not be there, then you use `dictionary.get(key, value_if_there_is_no_key)`.
 
 ```python
-teclas_apertadas = set()  # conjunto (set) vazio
-# dicionário {tecla: 'nome para mostrar'}
+pressed_keys = set()  # empty set
+# dicionário {key: 'name shown'}
 nomes = {UP: '↑',
          DOWN: '↓',
          LEFT: '←',
@@ -200,15 +200,15 @@ def setup():
     stroke_weight(3)
 
 def draw():
-    # em vez de 'b' agora o espaço deixa o fundo preto
-    if ' ' in teclas_apertadas:
+    # instead of 'b' spacebar makes the background black
+    if ' ' in pressed_keys:
         background(0)
     else:
         background(50, 200, 50)
     
-    for i, tecla in enumerate(sorted(teclas_apertadas)):
-        # tendo `tecla` no dicionário pega o 'nome para mostrar'
-        n = nomes.get(tecla, tecla)  # se não tiver, devolve `tecla` mesmo!   
+    for i, k in enumerate(sorted(pressed_keys)):
+        # checks for special key names
+        n = nomes.get(k, k)  # if k not in dictionary show k!   
         x = i * 64
         fill(0, x / 2, 200)
         rect(x, 96, 64, 64)
@@ -217,9 +217,9 @@ def draw():
 
 def key_pressed():
     if key != CODED:
-        teclas_apertadas.add(key)
+        pressed_keys.add(key)
     else:
-        teclas_apertadas.add(key_code)
+        pressed_keys.add(key_code)
 
     # No Processing tradicional é possível impedir que ESC feche o sketch... no py5 ainda não é possível.
     if key == ESC:
@@ -227,9 +227,9 @@ def key_pressed():
 
 def key_released():
     if key != CODED:
-        teclas_apertadas.discard(key)
+        pressed_keys.discard(key)
     else:
-        teclas_apertadas.discard(key_code)
+        pressed_keys.discard(key_code)
 ```
 
 ![](assets/teclas_simultaneas\_3.gif)
@@ -248,7 +248,7 @@ def key_released():
 
 <!---->
 
-- `Sorted()` was used to obtain a sorted list from the set of `pressed_keys`
+- `sorted()` was used to obtain a sorted list from the set of `pressed_keys`
 
 <!-- - Dentro do `keyPressed()` no <glossary variable="Processing">Processing</glossary> modo Python tinha um pequeno truque que impedia o *sketch*  de ser interrompido pela tecla `ESC`, mas não funciona mais -->
 
@@ -265,7 +265,7 @@ In the example below, we'll use a dictionary to store a lot of information about
 Use `SHIFT` to turn the background colour animation on and off and the space bar to return the circles to their original position.
 
 ```python
-teclas_apertadas = set()  # conjunto (set) vazio
+pressed_keys = set()  # empty set
 pa = {'x': 128, 'y': 128,
       'fill': color(0, 0, 200), 'stroke': 0,
       'sobe': 'W', 'desce': 'S',
@@ -277,8 +277,8 @@ pb = {'x': 384, 'y': 128,
       'esq': LEFT, 'dir': RIGHT,
       'inv': ENTER}
 players = (pa, pb)
-anima_fundo = False
-cor_fundo = 128
+animate_bg = False
+bg_color = 128
 
 def setup():
     size(512, 256)
@@ -287,36 +287,36 @@ def setup():
     stroke_weight(3)
 
 def draw():
-    global cor_fundo
-    if anima_fundo:
-        cor_fundo = abs(cor_fundo + sin(frame_count / 60.)) % 256
-    background(cor_fundo)
+    global bg_color
+    if animate_bg:
+        bg_color = abs(bg_color + sin(frame_count / 60.)) % 256
+    background(bg_color)
     for p in players:
         # print(p)  # debug
         fill(p['fill'])
         stroke(p['stroke'])
         ellipse(p['x'], p['y'], 50, 50)
         # Ajusta a posição dos círculos
-        if p['sobe'] in teclas_apertadas:
+        if p['sobe'] in pressed_keys:
             p['y'] -= 1
-        if p['desce'] in teclas_apertadas:
+        if p['desce'] in pressed_keys:
             p['y'] += 1
-        if p['esq'] in teclas_apertadas:
+        if p['esq'] in pressed_keys:
             p['x'] -= 1
-        if p['dir'] in teclas_apertadas:
+        if p['dir'] in pressed_keys:
             p['x'] += 1
 
 def key_pressed():
-    teclas_apertadas.add(key_code if key == CODED else chr(key_code))
+    pressed_keys.add(key_code if key == CODED else chr(key_code))
     for p in players:
-        if p['inv'] in teclas_apertadas:
+        if p['inv'] in pressed_keys:
             p['fill'], p['stroke'] = p['stroke'], p['fill']
 
 def key_released():
-    global anima_fundo
-    teclas_apertadas.discard(key_code if key == CODED else chr(key_code))
+    global animate_bg
+    pressed_keys.discard(key_code if key == CODED else chr(key_code))
     if key_code == SHIFT:
-        anima_fundo = not anima_fundo
+        animate_bg = not animate_bg
     if key == ' ':
         pa['x'], pa['y'] = 128, 128
         pb['x'], pb['y'] = 384, 128
