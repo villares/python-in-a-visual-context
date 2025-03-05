@@ -161,7 +161,7 @@ Note that `TAB`, `ENTER` and some other *uncoded* keys were also not shown corre
 
 Let's make some adjustments to the code to identify and display these keys more elegantly!
 
-To do this, we'll use another data structure called a **dictionary***(dict*). This maps (creates a correspondence between)*keys* and*values*. It's very quick to look up a value linked to a key in a dictionary.
+To do this, we'll use another data structure called a **dictionary** (dict). This maps (creates a correspondence between)*keys* and*values*. It's very quick to look up a value linked to a key in a dictionary.
 
 If you know that the key exists in the dictionary, you can look it up using the form dictionary `[key]` (which gives an error if the key doesn't exist in the dictionary). When you're not sure if the key is there, or it's part of the strategy to look for keys that might not be there, then you use `dictionary.get(key, value_if_there_is_no_key)`.
 
