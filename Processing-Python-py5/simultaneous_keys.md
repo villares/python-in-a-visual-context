@@ -52,7 +52,7 @@ A modification can prevent a key from being displayed when it is released and al
 
 ### A first solution
 
-The solutions to this issue involve creating a structure that stores the state of the keys, indicating whether the key is pressed at that moment, and that can be modified by the events of pressing or releasing a key. At first, for our example, the structure could simply be a pair of global variables, used as*flags* for the state of the keys, `a_pressed` and `b_pressed`.
+The solutions to this issue involve creating a structure that stores the state of the keys, indicating whether the key is pressed at that moment, and that can be modified by the events of pressing or releasing a key. At first, for our example, the structure could simply be a pair of global variables, used as *flags* for the state of the keys, `a_pressed` and `b_pressed`.
 
 ```python
 
@@ -190,7 +190,7 @@ nomes = {UP: '↑',
          33: 'PgUp',
          34: 'PgDwn',
          144: 'NumLk',
-         ' ': 'espaço',
+         ' ': 'space',
          }
 
 def setup():
@@ -200,7 +200,7 @@ def setup():
     stroke_weight(3)
 
 def draw():
-    # instead of 'b' spacebar makes the background black
+    # instead of 'b' the spacebar makes the background black
     if ' ' in pressed_keys:
         background(0)
     else:
