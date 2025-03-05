@@ -107,7 +107,7 @@ def key_released():
 
 But what if the number of keys we want to identify is very large? Do we have to make a bunch of global variables and a bunch of `if` conditionals inside `key_pressed()` and `key_released`? That doesn't sound very elegant!
 
-So let's explore a strategy of storing the keys that have been pressed in a data structure called a*set*, removing them from the set when they are released. It's worth noting that sets don't keep the order in which their items were added, and items are unique; a set never has duplicate items.
+So let's explore a strategy of storing the keys that have been pressed in a data structure called a *set*, removing them from the set when they are released. It's worth noting that sets don't keep the order in which their items were added, and items are unique; a set never has duplicate items.
 
 To add an item to a set we use `set.add(item)`, and to remove `set.discard(item)`. This last operation, *discard*, does nothing if the item doesn't exist in the set.
 
@@ -246,17 +246,15 @@ def key_released():
 
   Note that now `a` and `A` should appear as `A` and , `1` and `!` `as1`. Stay tuned and test to avoid surprises! On my computer, the `key_code` for `+` and `-` on the side numeric keypad, for example, appear as `k` and `m`.
 
-<!---->
+- The Python built-in function `sorted()` was used to obtain a sorted list from the set of `pressed_keys`
 
-- `sorted()` was used to obtain a sorted list from the set of `pressed_keys`
-
-<!-- - Dentro do `keyPressed()` no <glossary variable="Processing">Processing</glossary> modo Python tinha um pequeno truque que impedia o *sketch*  de ser interrompido pela tecla `ESC`, mas não funciona mais -->
+- Check out py5's documentation on [`intercept_escape()`](https://py5coding.org/reference/sketch_intercept_escape.html) if you want to detect the `ESC` key and avoid letting it quit the sketch.
 
 - In the dictionary I've added some key codes I've seen, being on Linux, the key codes and names may vary depending on your operating system.
 
 ### Combining strategies
 
-The strategy of status indicators for keys, or adding and removing indicators for pressed keys in a*set* using `key_pressed()` and `key_released()` is good for knowing if a key is pressed at a given time, very useful especially for controls that can be pressed continuously.
+The strategy of status indicators for keys, or adding and removing indicators for pressed keys in a *set* using `key_pressed()` and `key_released()` is good for knowing if a key is pressed at a given time, very useful especially for controls that can be pressed continuously.
 
 On the other hand, *to toggle* a setting, something like switching an option on and off, for example, it may be better to use an indicator modified by a simple conditional in `keyTyped()``,key_pressed` `(`) or `key_released()`, to prevent a keystroke from triggering the action more than once.
 
