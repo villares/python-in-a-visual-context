@@ -266,13 +266,13 @@ Use `SHIFT` to turn the background colour animation on and off and the space bar
 pressed_keys = set()  # empty set
 pa = {'x': 128, 'y': 128,
       'fill': color(0, 0, 200), 'stroke': 0,
-      'sobe': 'W', 'desce': 'S',
-      'esq': 'A', 'dir': 'D',
+      'up': 'W', 'down': 'S',
+      'left': 'A', 'right': 'D',
       'inv': TAB}
 pb = {'x': 384, 'y': 128,
       'fill': color(200, 0, 0), 'stroke': 255,
-      'sobe': UP, 'desce': DOWN,
-      'esq': LEFT, 'dir': RIGHT,
+      'up': UP, 'down': DOWN,
+      'left': LEFT, 'right': RIGHT,
       'inv': ENTER}
 players = (pa, pb)
 animate_bg = False
@@ -287,21 +287,21 @@ def setup():
 def draw():
     global bg_color
     if animate_bg:
-        bg_color = abs(bg_color + sin(frame_count / 60.)) % 256
+        bg_color = abs(bg_color + sin(frame_count / 60)) % 256
     background(bg_color)
     for p in players:
         # print(p)  # debug
         fill(p['fill'])
         stroke(p['stroke'])
-        ellipse(p['x'], p['y'], 50, 50)
-        # Ajusta a posição dos círculos
-        if p['sobe'] in pressed_keys:
+        circle(p['x'], p['y'], 50)
+        # Modify the player/circle's position
+        if p['up'] in pressed_keys:
             p['y'] -= 1
-        if p['desce'] in pressed_keys:
+        if p['down'] in pressed_keys:
             p['y'] += 1
-        if p['esq'] in pressed_keys:
+        if p['left'] in pressed_keys:
             p['x'] -= 1
-        if p['dir'] in pressed_keys:
+        if p['right'] in pressed_keys:
             p['x'] += 1
 
 def key_pressed():
@@ -324,7 +324,7 @@ def key_released():
 
 #### Notes
 
-- The key_typed`()` and key_pressed`()` functions are triggered as soon as the key is pressed, and are susceptible to automatic repetition after the key has been held down for a while, while `key_released()` is triggered only when the key is released.
+- The key_typed`()` and key_pressed`()` functions are triggered as soon as the key is pressed, and are susceptible to the OS automatic repetition setting after the key has been held down for a while, while `key_released()` is triggered only when the key is released.
 
 ## Exercise
 
