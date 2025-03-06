@@ -107,7 +107,7 @@ def key_released():
 
 But what if the number of keys we want to identify is very large? Do we have to make a bunch of global variables and a bunch of `if` conditionals inside `key_pressed()` and `key_released`? That doesn't sound very elegant!
 
-So let's explore a strategy of storing the keys that have been pressed in a data structure called a *set*, removing them from the set when they are released. It's worth noting that sets don't keep the order in which their items were added, and items are unique; a set never has duplicate items.
+So let's explore a strategy of storing the keys that have been pressed in a data structure called a **set**, removing them from the set when they are released. It's worth noting that sets don't keep the order in which their items were added, and items are unique; a set never has duplicate items.
 
 To add an item to a set we use `set.add(item)`, and to remove `set.discard(item)`. This last operation, *discard*, does nothing if the item doesn't exist in the set.
 
@@ -161,9 +161,9 @@ Note that `TAB`, `ENTER` and some other *uncoded* keys were also not shown corre
 
 Let's make some adjustments to the code to identify and display these keys more elegantly!
 
-To do this, we'll use another data structure called a **dictionary** (dict). This maps (creates a correspondence between)*keys* and*values*. It's very quick to look up a value linked to a key in a dictionary.
+To do this, we'll use another data structure called a **dictionary** (or dict). This maps (creates a correspondence between) *keys* and *values*, and it's very quick to look up a value corresponding to a key in a Python dictionary.
 
-If you know that the key exists in the dictionary, you can look it up using the form dictionary `[key]` (which gives an error if the key doesn't exist in the dictionary). When you're not sure if the key is there, or it's part of the strategy to look for keys that might not be there, then you use `dictionary.get(key, value_if_there_is_no_key)`.
+If you know for sure that the key exists in the dictionary, you can look it up using the form `dictionary[key]`, but that can cause your program to stop and display an error, a *KeyError Exception*, if the key doesn't exist in the dictionary. When you're not sure if the key is there, or it's part of the strategy to look for keys that might not be there, then you can use `dictionary.get(key, value_if_there_is_no_key)`.
 
 ```python
 pressed_keys = set()  # empty set
@@ -221,9 +221,9 @@ def key_pressed():
     else:
         pressed_keys.add(key_code)
 
-    # No Processing tradicional é possível impedir que ESC feche o sketch... no py5 ainda não é possível.
     if key == ESC:
-         print('ESC')     
+         print('ESC')
+         intercept_escape()  # this stops your sketch from quitting with ESC!
 
 def key_released():
     if key != CODED:
