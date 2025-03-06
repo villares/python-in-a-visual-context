@@ -146,11 +146,11 @@ def key_released():
 
 Did you see a `65535` in the middle of the keys?
 
-It means that a`CODED` key has been pressed, like `SHIFT`, for example. We need to remember that some keys are labelled slightly differently, the so-called *coded* keys. When `key == CODED` you need to use the `key_code` variable to find out which key was pressed (or released), usually by comparing it with a numeric constant like these:
+It means that a *coded* key has been pressed, modifier keys, like `SHIFT`, and the arrows keys, mostly. These keys are treated slightly differently. When the `key` variable is equal to the `CODED` constant (`key == CODED` is `True`) you'll need to use the `key_code` variable to find out which key was pressed (or released), usually by comparing it with one of the following numeric constants:
 
 `UP DOWN LEFT RIGHT ALT CONTROL SHIFT`
 
-Note that `TAB`, `ENTER` and some other *uncoded* keys were also not shown correctly in the previous example. Certain non-coded keys, which can be identified using a `key`, need to be found by comparing the `key` with special constants or *strings*:
+Note that `TAB`, `ENTER` and some other keys, that are not *coded*, were also not shown correctly in the previous example. Certain "normal", *not-coded* keys, which can be identified directly using the `key` variable, need to be found by comparing `key` with some special constants or *strings*:
 
     BACKSPACE '\b'
     TAB       '\t'
@@ -168,7 +168,7 @@ If you know for sure that the key exists in the dictionary, you can look it up u
 ```python
 pressed_keys = set()  # empty set
 # dicionário {key: 'name shown'}
-nomes = {UP: '↑',
+names = {UP: '↑',
          DOWN: '↓',
          LEFT: '←',
          RIGHT: '→',
@@ -208,7 +208,7 @@ def draw():
     
     for i, k in enumerate(sorted(pressed_keys)):
         # checks for special key names
-        n = nomes.get(k, k)  # if k not in dictionary show k!   
+        n = names.get(k, k)  # if k not in dictionary show k!   
         x = i * 64
         fill(0, x / 2, 200)
         rect(x, 96, 64, 64)
@@ -238,13 +238,22 @@ def key_released():
 
 - Since certain keys modify the effect of others, for example `SHIFT` makes the `1` key appear as `!`, then certain sequences can bring strange results:
 
-  `Pressing` SHIFT, then ` 1,  `then releasing `SHIFT`, and finally releasing `1`. causes the sketch to miss the `!` key being 'released'. One possible solution is to keep track of only the `key_code of` the keys, which always remains the same, but we can convert the `key_code`, which is a number, into something more readable, in the case of unencoded keys, using chr()\`:
+  Pressing `SHIFT`, then `1`, then releasing `SHIFT`, and finally releasing `1`, causes the sketch to miss the `!` key being "released". One possible solution is to keep track of only the `key_code` of the keys, which remains the same, and we can still convert the `key_code`, which is a number, into something more readable, in the case of keys that are "not coded" (`CODED` is `False`) , using `chr()`:
 
   ```python
-  def key_pressed(): if key != CODED: keys_tightened.add(chr(key_code)) else: keys_tightened.add(key_code)def key_released(): if key != CODED: keys_tightened.discard(chr(key_code)) else: keys_tightened.discard(key_code) 
-  ```
+  def key_pressed():
+      if key != CODED:
+          pressed_keys.add(chr(key_code))
+      else:
+          pressed_keys.add(key_code)
 
-  Note that now `a` and `A` should appear as `A` and , `1` and `!` `as1`. Stay tuned and test to avoid surprises! On my computer, the `key_code` for `+` and `-` on the side numeric keypad, for example, appear as `k` and `m`.
+  def key_released():
+      if key != CODED:
+          pressed_keys.discard(chr(key_code))
+      else:
+          pressed_keys.discard(key_code) 
+  ```
+  Note that now `a` and `A` should appear as `A` and , `1` and `!` as `1`. Be careful and test to avoid surprises! On my computer, the `key_code` for `+` and `-` on the laterak numeric keypad, for example, appear as `k` and `m`.
 
 - The Python built-in function `sorted()` was used to obtain a sorted list from the set of `pressed_keys`
 
