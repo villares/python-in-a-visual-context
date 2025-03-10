@@ -1,7 +1,7 @@
 
 > [!WARNING]  
 > - Reviewed by a person: Not yet  
-> - Open issues at [python-visual-context/issues](https://github.com/villares/python-in-a-visual-context/issues) 
+> - Open issues at [python-in-a-visual-context/issues](https://github.com/villares/python-in-a-visual-context/issues) 
 > - Support this by donating at [liberapay.com/villares](https://liberapay.com/villares/) 
 
 ## Material for py5 with Thonny IDE
