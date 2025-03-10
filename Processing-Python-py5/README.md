@@ -11,13 +11,13 @@
 
 ## Fundamental elements
 
-- 1.0.0 [First steps and basic drawing](basic_drawing.md)
+1.0.0 [First steps and basic drawing](basic_drawing.md)
 - 1.0.1 [Variables](variables.md)
 - 1.0.2 [Designing polygons](Polygons_1.md)
 - 1.0.3 [What is indentation?](indentation.md) - first contact with `setup()` and `draw()`
 - 1.0.4 [More about colors(RGB and HSB)](more_about_cores.md)
 
-- 1.1.0 [Conditional execution (`if`/`else`)](conditional_py.md), relational operators and logical operators
+1.1.0 [Conditional execution (`if`/`else`)](conditional_py.md), relational operators and logical operators
 - 1.1.0 [More movement and interactivity with `setup()` and `draw()`](setup_draw.md)
 - 1.1.2 [What is the difference between `=` (attribution) and `==` (comparison)?](attribuicao-e-comparacao.md)
 - 1.1.3 [Creating an animation](movement_py.md)
@@ -25,33 +25,33 @@
 - 1.1.5 [Authority: `random` and numbers "sorted"](random_1.md)
 - 1.1.6 [Division by zero and the rest of the division](divisao.md)
 
-- 1.2.0 [Defining new functions](funcoes_py.md)
-1.2.1 [Functions with standard arguments(or optional)](funcoes_2.md)
-1.2.2 [Conditions nested and other conditional structures](conditional_2.md)
+1.2.0 [Defining new functions](funcoes_py.md)
+- 1.2.1 [Functions with standard arguments(or optional)](funcoes_2.md)
+- 1.2.2 [Conditions nested and other conditional structures](conditional_2.md)
 - 1.2.3 [Modifying the coordinate system](transformacoes_coordinates.md) with `translate()`, `rotate()`, `scale()` and more!
-1.2.4. [Recursive functions](recursao_py.md) and recursivity in your drawing
+= 1.2.4. [Recursive functions](recursao_py.md) and recursivity in your drawing
 - 1.2.5. [First 3D drawing steps](design 3D.md) - `size(..., ..., P3D)`
 
 - 1.3.0 [Sequences and loops of repetition (iteration with `for`)](lacos_py.md)
 - 1.3.1 [More about sequences and slices](more_sequencias.md)
 - 1.3.2 [Rectangular books: rows and columns of elements](grades.md)
 - 1.3.3 [More about polygons](Polygons_2.md)
-1.3.4 [drawing curved shapes](curvas.md)
+- 1.3.4 [Drawing curved shapes](curvas.md)
 - 1.3.5 [Repeated loop with `while`](while.md)
 
-- 1.4.0 as text (*strings*) and whole numbers (*int*) or floating point (*float*)
+1.4.0 as text (*strings*) and whole numbers (*int*) or floating point (*float*)
 - 1.4.1 [Texts in the program, console and screen (*strings*)](strings_py.md)
-1.4.2 [Working with fonts and other text settings](tipography.md)
-1.4.3 [Methods of *string* objects](string_methods.md)
+- 1.4.2 [Working with fonts and other text settings](tipography.md)
+- 1.4.3 [Methods of *string* objects](string_methods.md)
 - 1.4.4 [The special value `None`](None.md)
-1.4.5 [Integers (*int*) and floating point numbers (*float*)(numeros.md)
+- 1.4.5 [Integers (*int*) and floating point numbers (*float*)(numeros.md)
 
-- 1.5.0. [More interaction and input with keyboard and mouse](input_py.md)
-- 1.5.1 [listening simultaneous keys](simultaneous_keys.md)
-- 1.5.2 [A simple button](button_simples.md)
-- 1.5.3 [ Dragging circles](arrastando_circulos.md)
-- 1.5.4 [ Mouse wheel*(*mouse wheel*)](rodinha_mouse.md)
-- 1.5.5 [Stopdraw()](no_loop.md)
+1.5.0. [More interaction and input with keyboard and mouse](input_py.md)
+- 1.5.1 [**Detecting simultaneous keys**](simultaneous_keys.md) DONE!
+- 1.5.2 [A simple button](button_simple.md)
+- 1.5.3 [Dragging circles](drag_circles.md)
+- 1.5.4 [Using the mouse wheel](mouse_wheel.md)
+- 1.5.5 [How to stop `draw()` ](no_loop.md)
 
 ## More on data structures
 
@@ -73,8 +73,8 @@
 ## Guide to Objects
 
 - 4.1.1 [First steps of object orientation: using the Slider class](slider_com_OO.md)
-- 4.2.1. [A button with object orientation](botao_com_OO.md)
-- 4.3.1 (A class of simple particles)(particles.md)
+- 4.2.1 [A button with object orientation](botao_com_OO.md)
+- 4.3.1 [A Class of Simple Particles](particles.md)
 - 4.4.1 [Operations with vectors and the `Py5Vector` class of Processing](vectors.md)
 - 4.5.1 [Introduction to object orientation with bandeirinhas](bandeirinhas)
 - 4.6.1 [Designing in a space outside the screen](offscreen_buffer.md) (offscreen buffer) and cropping images
