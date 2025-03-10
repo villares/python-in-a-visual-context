@@ -9,10 +9,10 @@ Reviewed by a person: Not yet | Open an issue at [python-visual-context/issues](
 
 ## Fundamental elements
 
-- 1.0.0 [First steps and basic drawing](drawing-basic_py.md)
-- 1.0.1
+- 1.0.0 [First steps and basic drawing](basic_drawing.md)
+- 1.0.1 [Variables](variables.md)
 - 1.0.2 [Designing polygons](Polygons_1.md)
-- 1.0.3 [What is indentation?](indentacao.md) - first contact with `setup()` and `draw()`
+- 1.0.3 [What is indentation?](indentation.md) - first contact with `setup()` and `draw()`
 - 1.0.4 [More about colors(RGB and HSB)](more_about_cores.md)
 
 - 1.1.0 [Conditional execution (`if`/`else`)](conditional_py.md), relational operators and logical operators
@@ -95,8 +95,8 @@ Reviewed by a person: Not yet | Open an issue at [python-visual-context/issues](
 
 ## More Advanced Tool Issues
 
-- 7.1.1 [Using multiple tabs in the IDE](modulos.md)
-- 7.2.1 [Digs to port Java mode Processing examples for Python mode](java_para_python.md)
+- 7.1.1 [Using multiple tabs on the IDE](modulos.md)
+- 7.2.1 [**Tips to port Java Processing examples to Python**](https://py5coding.org/content/coming_from_processing_java.html) [External link, already translated :)]
 - 7.3.1 [Manipulating the window](more_que_size.md) (Full screen, resizing and multiple windows)
 - 7.4.1 (A dialog window with a text field)(input_janela.md)
 <!-- - 7.5.1 using Python and Java external libraries) -->
@@ -106,14 +106,14 @@ Reviewed by a person: Not yet | Open an issue at [python-visual-context/issues](
 
 ## In this repository
 
-- [Truchet modules or mosaics](truchet.md)
-- [PONG Game](pong/) - Studies to make it a game
-- [L-System](LSystem.md) - Lindenmayer System
-- [Cell automatons](automatos-cellulares.md)
+- [Truchet Tiles](truchet.md) - Geometric modules and tile rotation.
+- [PONG Game](pong/) - Studies to make a game
+- [L-System](LSystem.md) - The Lindenmayer System
+- [Cellular automata](automatos-cellulares.md) - Conway's Game of Life 
 
 ###
 
-- [Magic site](https://abav. place somewhere. with/lousa-magica) - Drawing with Arduino and potentiometers
-- [Paper Objects with Processing and Python](https://abav. rentagum.com/Paper-objects-with-Processing-and-Python)
-- [Arc, tangents & Bezier studies](https://github.com/villares/arc_tangents_and_bezier_studies)
-- [2D physical simulations with PyMunk - Pinball](https://github.com/villares/pymunk-pinball-paulista)
+- [**Lousa Mágica**](https://abav.lugaralgum.com/lousa-magica) - Drawing with Arduino and potentiometers [External link, already translated :)]
+- [**Paper Objects with Processing and Python**](https://abav.lugaralgum.com/Paper-objects-with-Processing-and-Python) [External link, just some code]
+- [**Arc, Tangents & Bezier studies**](https://github.com/villares/arc_tangents_and_bezier_studies) [External link, already translated]
+- [2D Physical Simulations with PyMunk - a Pinball](https://github.com/villares/pymunk-pinball-paulista)
