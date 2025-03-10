@@ -6,7 +6,7 @@ Resources for courses and workshops, being developed in this [repository](https:
 
 # Educational content
 
-**[Material for Python 3 with py5](Processing-Python-py5/README.md)**
+**[Python 3 with py5 teaching materials](Processing-Python-py5/README.md)**
 
 ## Context
 > This started with materials teach/learn coding using Processing Python mode, in Portuguese, then it got converted to use **py5**, and now it is being translated into English.
