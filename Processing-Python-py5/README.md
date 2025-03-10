@@ -1,5 +1,5 @@
 ---
-Reviewed by a person: Not yet | Open an issue at [python-visual-context/issues](https://github.com/villares/python-visual-context/issues) | Support this donating at [liberapay.com/villares](https://liberapay.com/villares/)
+Reviewed by a person: Not yet | Open an issue at [python-visual-context/issues](https://github.com/villares/python-in-a-visual-context/issues) | Support this donating at [liberapay.com/villares](https://liberapay.com/villares/)
 ---
 
 ## Material for py5 with Thonny IDE
