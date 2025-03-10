@@ -100,13 +100,11 @@
 - 7.1.1 [Using multiple tabs on the IDE](modulos.md)
 - 7.2.1 [**Tips to port Java Processing examples to Python**](https://py5coding.org/content/coming_from_processing_java.html) [External link, already translated :)]
 - 7.3.1 [Manipulating the window](more_que_size.md) (Full screen, resizing and multiple windows)
-- 7.4.1 (A dialog window with a text field)(input_janela.md)
-<!-- - 7.5.1 using Python and Java external libraries) -->
-<-- 7.6.1 [Exporting an independent application](export_application.md) _
+- 7.4.1 [A dialog window with a text field](input_janela.md)
 
 ## Small projects and other examples
 
-## In this repository
+### In this repository
 
 - [Truchet Tiles](truchet.md) - Geometric modules and tile rotation.
 - [PONG Game](pong/) - Studies to make a game
