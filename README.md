@@ -19,7 +19,7 @@ Resources for courses and workshops, being developed in this [repository](https:
 This didactic materials can be modified and used to teach/learn. Read the [instructions on how to collaborate](https://github. with/villares/material-aulas/blob/master/over/how-contribuir.md) and open [*issues*](https://github.com/villares/material-aulas/issues) pointing problems, suggesting issues and improvements, or contributing *Pull Requests* to the repository.
 
 If you want to support the continuity of this project, which produces open teaching material, make a PIX `46c37783-5edb-4f1c-b3a8-1309db11488c`, [doation of any value here](https://www.paypal. with/donate/?hosted_button_id=5B4MZ78C9J724) or
-[gumroad.com/villares](https://gumroad.com/villares)!
+[Wise](https://wise.com/pay/me/alexandrev562)!
 
 ## Related Resources
 
