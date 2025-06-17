@@ -1,10 +1,11 @@
-axiom = "X"
-rules = {"X": "F+[[X]-X]-F[-FX]+X",
-         "F": "FF"
+axiom = "F"
+rules = {
+    #"X": "F[+G[+X]]-G[-X]+X",
+    'F': 'F[+F-F+FO]F[-F+F-FO]',
           }
-step = 10
-angle = 25
-interations = 4  # the substitution rules are applied 4 time
+step = 2
+angle = 22
+interations = 6  # the substitution rules are applied 4 time
 xo, yo = 300, 500
 
 def setup():
@@ -14,7 +15,7 @@ def setup():
     print(len(sequence))
 
 def draw():
-    background(240, 240, 200)
+    background(200, 240, 240)
     translate(xo, yo)
     draw_sequence(sequence, step, angle)
 
@@ -42,25 +43,32 @@ def draw_sequence(symbols, step, angle):
     for symbol in symbols:
         if symbol == 'X':  
             pass  # does nothing
-        
-        if symbol == "F":
+        elif symbol == 'G':
+            translate(0, -step) # a step without drwing
+        elif symbol == "F":
             line(0, 0, 0, -step)
             translate(0, -step)
-        if symbol == "+":
+        elif symbol == "+":
             rotate(radians(angle))
-        if symbol == "-":
+        elif symbol == "-":
             rotate(radians(-angle))
-        if symbol == "[":
+        elif symbol == "[":
             push_matrix()
-        if symbol == "]":
+        elif symbol == "]":
             pop_matrix()
-
+        elif symbol == 'O':
+            push_style()
+            fill(255)
+            no_stroke()
+            circle(0, 0, step * 2)
+            pop_style()
+            
 def key_pressed():
     global step, angle, interations, sequence
     if key == 'z':
-        step -= 1  # step = step - 1
+        step *= 2  # step = step - 1
     if key == 'x':
-        step += 1
+        step /= 2
     if key == 'a':
         angle -= 1
     if key == 's':
