@@ -12,6 +12,7 @@ The computational translation of these structures was first discussed in the ser
 > - [L-System User Notes, by Paul Bourke](http://www.paulbourke.net/fractals/lsys/)
 > - [Using Lindenmayer Systems to Introduce Computer Science Concepts](https://www.russellgordon.ca/cemc/2017/lindenmayer-systems/)
 > - [Wikipedia: L-system](https://en.wikipedia.org/wiki/L-system)
+> - [The final section of Shiffman's Nature of Code: Chapter 8 - Fractals](https://natureofcode.com/fractals/#l-systems)
 
 ## Prerequisites
 
@@ -23,7 +24,7 @@ To understand the examples presented below, it is necessary to be familiar with 
 
 ### Iterating and concatenating strings
 
-We can iterate over a word with a `for` loop, it will get you letters. Python still considers a single letter a string (unlike other languages it doesn't have a *char* type).
+We can iterate over a string (word or phrase) with a `for` loop, that will get you the individual letters. Python still considers a single letter a string (unlike other languages it doesn't have a *char* type).
 
 ```python
 >>> for letter in 'cat':
@@ -45,7 +46,9 @@ We can concatenate letters to form longer strings with the `+` operator. An empt
 
 ### Using dictionaries for string substitution
 
-A dictionary is a structure that stores key-value pairs. The values can be searched in the structure from a key. When we consult the dictionary with the syntax of the brackets `dictionary[key]`, it returns the value, and if the key is not found, a `KeyError` exception occurs. Using the `.get(key)` method, it is possible to avoid this exception, and the special value `None` is returned, but if we use the form `.get(key, value_for_missing_key)`, it is possible to choose what the dictionary returns if the key is not found.
+A dictionary is a structure that stores key-value pairs. The values can be retrieved by providing associated key. When we access the dictionary with the brackets syntax, like `dictionary[key]`, it will return the found value, but if the key is not found, a `KeyError` exception occurs.
+
+Using the `.get(key)` method, it's possible to avoid the exception, and the special value `None` is returned. Then, if we use the form `.get(key, value_for_missing_key)`, it's possible to choose what the dictionary returns if the key is not found, like in the example below.
 
 ```python
 >>> portuguese = {'maçã': 'apple', 'pêra': 'pear'}
@@ -85,7 +88,7 @@ Result: **`Whaaaaattttt?`**
 
 ### Drawing lines, as if dragging a pen
 
-To simulate the movement of a "pen" making successive lines, we can move the origin of the coordinate system using `translate()`, draw a line, and then move the origin to the end of the line. To change the orientation of the strokes, it is possible to "rotate the paper" around the origin with `rotate()`. If we save the state of the coordinate system with `push_matrix()`, we can undo subsequent transformations with `pop_matrix()`, bringing the "pen" back to a previous point and orientation.
+To simulate the movement of a "pen" making successive lines, we can move the origin of the coordinate system using `translate()`, draw a line, and then move the origin to the end of the line. To change the orientation of the strokes, it is possible to "rotate the paper" around the origin with `rotate()`. If we save the state of the coordinate system with `push_matrix()`, we can undo subsequent transformations and then with `pop_matrix()` bringing the "pen" back to a previous point and orientation.
 
 See below an example and the result it generates.
 
@@ -121,7 +124,7 @@ def setup():
 
 Having studied the prerequisites, we can finally build an example of an L-System.
 
-Starting from substitution rules applied to an initial phrase (axiom), it is possible to produce drawings that approximate plants and fractals with self-similarity at various scales. For this, part of the symbols (letters) are interpreted as a drawing action, such as moving a pen forward, turning right or left by a certain angle, or flying to a previous position stored in a stack of coordinate system states.
+Starting from substitution rules applied to an initial phrase or sequence of symbols, called an axiom, it is then possible to produce drawings that approximate plants and fractals, with self-similarity at various scales. For this, part of the symbols are interpreted as a drawing actions, such as moving a pen forward, turning right or left by a certain angle, or going back to a previous position and heading (stored in a stack of coordinate system states).
 
 ```python
 axiom = "X"
@@ -132,21 +135,20 @@ rules = {"X": "F+[[X]-X]-F[-FX]+X",
 step = 10
 angle = 25
 interations = 4  # repetitions (turns in the application of the rules)
-xo, yo = 300, 500
 
 def setup():
     size(600, 600)
+    # generating the sequence
     initial_sequence = axiom
     for i in range(interations):
         sequence = ""
         for symbol in initial_sequence:
-            substituicao = rules.get(symbol, symbol)
-            sequence = sequence + substituicao
+            replacement = rules.get(symbol, symbol)
+            sequence = sequence + replacement
         initial_sequence = sequence
-    print(len(sequence))
-
+    # drawing the sequence    
     background(240, 240, 200)
-    translate(xo, yo)
+    translate(300, 500)
     for symbol in sequence:
         if symbol == "F":
             line(0, 0, 0, -step)  # draw a line
@@ -188,7 +190,7 @@ def draw():
 
 def generate_sequence(num, axiom, rules):
     """
-    Generat an L-System sequence from a starting sequence (axiom),
+    Generate an L-System sequence from a starting sequence (axiom),
     repeating a number (num) of times the replacements described
     by a dictionary (rules);
     """
@@ -203,8 +205,9 @@ def generate_sequence(num, axiom, rules):
 
 def draw_sequence(symbols, step, angle):
     """
-    Draw a sequence of symbols according to 
-    some "drawing rules".
+    Draw from reading a sequence of symbols according to 
+    some "drawing rules" for each symbol. Size is controlled 
+    by a step value, and the rotations by an angle value.
     """
     for symbol in symbols:
         if symbol == "F":
@@ -257,22 +260,19 @@ interations = 5
 
 def setup():
     global sequence_resultado
-    size(900, 900, P3D)
-    initial_sequence=axiom
+    size(600, 600, P3D)
+    initial_sequence = axiom
     for _ in range(interations):
-        sequence_resultado = ''
+        new_sequence = ""
         for symbol in initial_sequence:
-            substituir = rules.get(symbol, symbol)
-            sequence_resultado = sequence_resultado + substituir
-        # print(initial_sequence, sequence_resultado)
-        initial_sequence=sequence_resultado
+            new_sequence += rules.get(symbol, symbol)
+        initial_sequence = new_sequence
     print(len(sequence_resultado))
 
 def draw():
     background(210, 210, 150)
-    stroke_weight(3)
+    stroke_weight(2)
     angle = 25
-    # angle = mouse_x / 70.0
     translate(width / 2, height * 0.8)
     rotate_y(frame_count / 100.0)
     for symbol in sequence_resultado:
