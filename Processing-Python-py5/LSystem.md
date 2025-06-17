@@ -72,15 +72,15 @@ As can be observed in the example above, if we use the form `.get(key, key)`, we
 In the example below, we will store some letters as keys associated with a sequence of letters as a value for each of them, we will use the values to substitute the letters of the keys found in a `for` loop.
 
 ```python
-vowels = {'a': 'aaa', 'e': 'eeê', 'i': 'iih', 'o': 'oôo', 'u': 'üüü'}
-word = 'anticonstitucionalissimamente'
+vowels = {'a': 'aaaaa', 't': 'ttttt''}
+word = 'What?'
 new_word = ''
 for letter in word:
     new_word = new_word + vowels.get(letter, letter)
 print(new_word)
 ```
 
-Result: **`aaantiihcoôonstiihtüüüciihoôonaaaliihssiihmaaamee
+Result: **`Whaaaaattttt?`**
 
 
 ### Drawing lines, as if dragging a pen
