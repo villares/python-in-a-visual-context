@@ -1,4 +1,4 @@
-
+<!-- 
 > [!WARNING]  
 > - Reviewed by a person: Not yet  
 > - Open issues at [python-in-a-visual-context/issues](https://github.com/villares/python-in-a-visual-context/issues) 
@@ -117,3 +117,4 @@
 - [**Paper Objects with Processing and Python**](https://abav.lugaralgum.com/Paper-objects-with-Processing-and-Python) [External link, just some code]
 - [**Arc, Tangents & Bezier studies**](https://github.com/villares/arc_tangents_and_bezier_studies) [External link, already translated]
 - [2D Physical Simulations with PyMunk - a Pinball](https://github.com/villares/pymunk-pinball-paulista)
+ -->
