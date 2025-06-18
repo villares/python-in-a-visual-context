@@ -168,6 +168,8 @@ def setup():
 
 ## An interactive example   
 
+In this example we will put the sequence generation on a function and the drawing on another, calling the drawing function inside py5's `draw()` the main loop, thn using the keyboard to control angle, step size and number of iterations (generating a new sequence).
+
 ```python
 axiom = "X"
 rules = {"X": "F+[[X]-X]-F[-FX]+X",
@@ -248,9 +250,9 @@ def key_pressed():
 
 ## 3D example
 
-![animacao](assets/LSystem-3D.gif)
-
 If we add a `rotate_y()` instruction after each step, we gen a nice 3D structure!
+
+![animacao](assets/LSystem-3D.gif)
 
 ```python
 from py5_tools import animated_gif
