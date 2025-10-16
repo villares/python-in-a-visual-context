@@ -156,7 +156,7 @@ def setup():
     translate(300, 500)
     for symbol in sequence:
         if symbol == "F":
-            line(0, 0, 0, -step)  # draw a linehttps://abav.lugaralgum.com/como-instalar-py5/index-EN.html#how-to-install-and-start-using-py5
+            line(0, 0, 0, -step)  # draw a line
             translate(0, -step)   # move the origin
         if symbol == "+":
             rotate(radians(angle)) 
