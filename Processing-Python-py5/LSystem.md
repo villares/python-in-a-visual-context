@@ -27,7 +27,7 @@ To understand the examples presented below, it is necessary to be familiar with 
 
 ### Iterating and concatenating strings
 
-We can iterate over a string (word or phrase) with a `for` loop, that will get you the individual letters. Python still considers a single letter a string (unlike other languages it doesn't have a *char* type).
+We can iterate over a string (word or phrase) with a `for` loop, that will get you the individual letters. Python still considers single letters a string (unlike other languages, it doesn't have a *char* type).
 
 ```python
 >>> for letter in 'cat':
@@ -37,7 +37,7 @@ a
 t
 ```
 
-We can concatenate letters to form longer strings with the `+` operator. An empty string with `''` can be concatenated with otehr strings without changing the result.
+We can concatenate letters to form longer strings with the `+` operator. Note that an empty string (`''`) can be concatenated with other strings without changing them (like zero when used in number addition operations).
 
 ```python
 >>> 'd' + 'o' + 'g'
@@ -49,9 +49,9 @@ We can concatenate letters to form longer strings with the `+` operator. An empt
 
 ### Using dictionaries for string substitution
 
-A dictionary is a structure that stores key-value pairs. The values can be retrieved by providing associated key. When we access the dictionary with the brackets syntax, like `dictionary[key]`, it will return the found value, but if the key is not found, a `KeyError` exception occurs.
+A dictionary is a data structure that stores key-value pairs. The values can be retrieved by providing the associated key. When we access the dictionary with the brackets syntax, like `dictionary[key]`, it will return the found value for that key, but, if the key is not there, a `KeyError` exception will be raised.
 
-Using the `.get(key)` method, it's possible to avoid the exception, and the special value `None` is returned. Then, if we use the form `.get(key, value_for_missing_key)`, it's possible to choose what the dictionary returns if the key is not found, as shown below.
+You use the `.get(key)` dictionary method, it avoids the `KeyError` exception, and returns the special value `None` if the key is missing. Also, if we use the form `.get(key, value_for_missing_key)`, it's possible to choose what the dictionary returns if the key is not found, as shown below.
 
 ```python
 >>> portuguese = {'maçã': 'apple', 'pêra': 'pear'}
@@ -73,7 +73,7 @@ KeyError: 'cupuaçu'
 'cupuaçu'
 ```
 
-Notice how in the example above, when we use the form `.get(key, key)`, it returns the key itself if it's not found in the dictionary. This proves to be very useful when using a dictionary to encode substitution rules: allowing the absence of the key to make the key itselg to be used without any substitution.
+Notice how in the example above when we use the form `.get(key, key)`, it returns the key itself if it's not in the dictionary. This proves to be very useful when using a dictionary to encode substitution rules: allowing the key itself to be used without any substitution if it is not in the dictionary.
 
 In the example below, we will store some letters as keys associated with a sequence of letters as a value for each of them, we will use the values to substitute the letters of the keys found in a `for` loop.
 
