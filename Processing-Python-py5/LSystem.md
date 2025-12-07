@@ -122,14 +122,14 @@ def setup():
     line(0, 0, 0, -100)  # a line of size 100 up
     translate(0, -100)   # move the origin to the end of the line (position 4)
 ```
+![](assets/turtle-move.png)
+
 
 ## An initial example of L-System
 
 Having studied the prerequisites, we can finally build an example of an L-System.
 
 Starting from substitution rules applied to an initial phrase or sequence of symbols, called an axiom, it is then possible to produce drawings that approximate plants and fractals, with self-similarity at various scales. For this, part of the symbols are interpreted as a drawing actions, such as moving a pen forward, turning right or left by a certain angle, or going back to a previous position and heading (stored in a stack of coordinate system states).
-
-![](assets/LSystem-0.png)
 
 ```python
 axiom = "X"
@@ -167,6 +167,8 @@ def setup():
         if symbol == "]":
             pop_matrix()   # return to the last saved state           
    ```
+
+![](assets/LSystem-0.png)
 
 ## An interactive example   
 
